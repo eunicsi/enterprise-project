@@ -6,16 +6,16 @@
 			"splitTerminals": [
 				{
 					"name": "webpack server",
-					"commands": ["npm start"]
+					"commands": ["bun start"]
 				},
-				{
-					"name": "storybook",
-					"commands": ["npm run storybook"]
-				},
-				{
-					"name": "json server",
-					"commands": ["npm run start:dev:server"]
-				},
+				// {
+				// 	"name": "storybook",
+				// 	"commands": ["npm run storybook"]
+				// },
+				// {
+				// 	"name": "json server",
+				// 	"commands": ["npm run start:dev:server"]
+				// },
 				{
 					"name": "commands"
 				}
