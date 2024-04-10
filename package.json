@@ -8,6 +8,7 @@
     "build:dev": "webpack --env mode=development"
   },
   "devDependencies": {
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
     "@types/bun": "latest",
     "@types/node": "^20.12.5",
     "@types/react": "^18.2.74",
@@ -17,6 +18,7 @@
     "css-loader": "^7.0.0",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.8.1",
+    "react-refresh": "^0.14.0",
     "sass": "^1.74.1",
     "sass-loader": "^14.1.1",
     "style-loader": "^3.3.4",
