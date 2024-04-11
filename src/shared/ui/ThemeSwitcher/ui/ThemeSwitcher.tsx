@@ -1,18 +1,18 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import * as cls from './ThemeSwitcher.module.scss';
-import { Theme, useTheme } from 'app/providers/ThemeProvider';
-import { IconMoon, IconSun } from '@tabler/icons-react';
-import Button, { ThemeButton } from 'shared/ui/Button/Button';
+import { classNames } from "shared/lib/classNames/classNames";
+import { Theme, useTheme } from "app/providers/ThemeProvider";
+import { IconMoon, IconSun } from "@tabler/icons-react";
+import Button, { ThemeButton } from "shared/ui/Button/Button";
+import * as cls from "./ThemeSwitcher.module.scss";
 
 interface ThemeSwitcherProps {
 	className?: string;
 }
 
 const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
-	const {theme, toggleTheme } = useTheme();
-	
+	const { theme, toggleTheme } = useTheme();
+
 	return (
-		<Button 
+		<Button
 			theme={ThemeButton.CLEAR}
 			className={classNames(cls.ThemeSwitcher, {}, [className])}
 			onClick={toggleTheme}

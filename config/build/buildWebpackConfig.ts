@@ -13,20 +13,20 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
 	} = options;
 
 	return {
-		mode: mode,
+		mode,
 		entry: paths.entry,
 		output: {
-			filename: '[name].[contenthash].js',
+			filename: "[name].[contenthash].js",
 			path: paths.build,
 			clean: true,
-			assetModuleFilename: 'src/assets/images/[name].[ext]',
+			assetModuleFilename: "src/assets/images/[name].[ext]",
 		},
 		plugins: buildPlugins(options),
 		module: {
 			rules: buildLoaders(options),
 		},
 		resolve: buildResolvers(options),
-		devtool: isDev ? 'inline-source-map' : undefined,
+		devtool: isDev ? "inline-source-map" : undefined,
 		devServer: isDev ? buildDevServer(options) : undefined,
-	}
+	};
 }

@@ -1,4 +1,3 @@
-
 declare module "*.scss" {
     interface IClassNames {
         [className: string]: string
@@ -6,7 +5,6 @@ declare module "*.scss" {
     const classNames: IClassNames;
     export = classNames;
 }
-
 
 declare module "*.jpg";
 declare module "*.jpeg";
