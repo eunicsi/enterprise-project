@@ -6,7 +6,6 @@ import PageLoader from "widgets/PageLoader/PageLoader";
 const AppRouter = () => {
 	return (
 		<Suspense fallback={<PageLoader />}>
-			<PageLoader />
 			<Routes>
 				{Object.values(routeConfig).map(({ element, path }) => {
 					return (
