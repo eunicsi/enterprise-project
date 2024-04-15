@@ -10,7 +10,7 @@ export default {
 		"\\\\node_modules\\\\",
 	],
 	moduleDirectories: [
-		"node_modules", ".",
+		"node_modules", "<rootDir>",
 	],
 	moduleFileExtensions: [
 		"js",
@@ -22,13 +22,20 @@ export default {
 	],
 	testEnvironment: "jsdom",
 	rootDir: "../../",
+	modulePaths: [
+		"<rootDir>/src",
+	],
 	testMatch: [
 		"<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)",
 	],
+
 	moduleNameMapper: {
+		"\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+			path.resolve(__dirname, "jestEmptyComponent.tsx"),
 		"\\.s?css$": "identity-obj-proxy",
-		"\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"),
 	},
+
+	setupFilesAfterEnv: ["<rootDir>config/jest/setupTests.ts"],
 
 	// Indicates whether the coverage information should be collected while executing the test
 	// collectCoverage: false,
