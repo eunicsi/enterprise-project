@@ -1,26 +1,26 @@
 {
-  "typescript.tsdk": "node_modules\\typescript\\lib",
-  "eslint.validate": ["javascript", "typescript"],
+	"typescript.tsdk": "node_modules\\typescript\\lib",
+	"eslint.validate": ["javascript", "typescript"],
 
-  "restoreTerminals.terminals": [
-    {
-      "splitTerminals": [
-        {
-          "name": "webpack server",
-          "commands": ["npm run start"]
-        },
-        // {
-        // 	"name": "storybook",
-        // 	"commands": ["npm run storybook"]
-        // },
-        // {
-        // 	"name": "json server",
-        // 	"commands": ["npm run start:dev:server"]
-        // },
-        {
-          "name": "commands"
-        }
-      ]
-    }
-  ]
+	"restoreTerminals.terminals": [
+		{
+			"splitTerminals": [
+				{
+					"name": "webpack server",
+					"commands": ["npm run start"]
+				},
+				{
+					"name": "storybook",
+					"commands": ["npm run storybook"]
+				},
+				// {
+				// 	"name": "json server",
+				// 	"commands": ["npm run start:dev:server"]
+				// },
+				{
+					"name": "commands"
+				}
+			]
+		}
+	]
 }
