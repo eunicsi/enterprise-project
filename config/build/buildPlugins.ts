@@ -11,7 +11,7 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
 		isDev,
 	} = options;
 
-	return [
+	const plugins = [
 		new HTMLWebpackPlugin({
 			template: paths.html,
 		}),
@@ -24,9 +24,14 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
 			__IS_DEV__: JSON.stringify(isDev),
 		}),
 		new ReactRefreshWebpackPlugin(),
-		new webpack.HotModuleReplacementPlugin(),
-		new BundleAnalyzerPlugin({
+	]
+
+	if (isDev) {
+		plugins.push(new webpack.HotModuleReplacementPlugin());
+		plugins.push(new BundleAnalyzerPlugin({
 			openAnalyzer: false,
-		}),
-	];
+		}));
+	}
+
+	return plugins;
 }
