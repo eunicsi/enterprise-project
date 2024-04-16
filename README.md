@@ -3,11 +3,11 @@
 To install dependencies:
 
 ```bash
-bun install
+npm install
 ```
 
 To run in dev:server:
 
 ```bash
-bun run start
+npm run start
 ```
