@@ -1,17 +1,17 @@
-import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import { ThemeProvider } from "app/providers/ThemeProvider";
-import { ErrorBoundary } from "app/providers/ErrorBoundary";
-import { PageError } from "widgets/PageError";
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from 'app/providers/ThemeProvider';
+import { ErrorBoundary } from 'app/providers/ErrorBoundary';
+import { PageError } from 'widgets/PageError';
 
-import App from "./app/App";
+import App from './app/App';
 
-import "shared/config/i18n/i18n";
+import 'shared/config/i18n/i18n';
 
-const root = document.getElementById("root");
+const root = document.getElementById('root');
 
 if (!root) {
-	throw new Error("root not found");
+	throw new Error('root not found');
 }
 
 const container = createRoot(root);

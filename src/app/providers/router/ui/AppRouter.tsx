@@ -1,7 +1,7 @@
-import { Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
-import { routeConfig } from "shared/config/routeConfig/routeConfig";
-import PageLoader from "widgets/PageLoader/PageLoader";
+import { Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { routeConfig } from 'shared/config/routeConfig/routeConfig';
+import PageLoader from 'widgets/PageLoader/PageLoader';
 
 const AppRouter = () => {
 	return (
@@ -12,11 +12,9 @@ const AppRouter = () => {
 						<Route
 							key={path}
 							path={path}
-							element={(
-								<div className="page-wrapper">
-									{element}
-								</div>
-							)}
+							element={
+								<div className="page-wrapper">{element}</div>
+							}
 						/>
 					);
 				})}

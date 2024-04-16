@@ -1,41 +1,26 @@
-import path from "path";
+import path from 'path';
 
 export default {
 	globals: {
 		__IS_DEV__: true,
-		__API__: "",
+		__API__: '',
 	},
 	clearMocks: true,
-	coveragePathIgnorePatterns: [
-		"\\\\node_modules\\\\",
-	],
-	moduleDirectories: [
-		"node_modules", "<rootDir>",
-	],
-	moduleFileExtensions: [
-		"js",
-		"jsx",
-		"ts",
-		"tsx",
-		"json",
-		"node",
-	],
-	testEnvironment: "jsdom",
-	rootDir: "../../",
-	modulePaths: [
-		"<rootDir>/src",
-	],
-	testMatch: [
-		"<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)",
-	],
+	coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
+	moduleDirectories: ['node_modules', '<rootDir>'],
+	moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+	testEnvironment: 'jsdom',
+	rootDir: '../../',
+	modulePaths: ['<rootDir>/src'],
+	testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
 
 	moduleNameMapper: {
-		"\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-			path.resolve(__dirname, "jestEmptyComponent.tsx"),
-		"\\.s?css$": "identity-obj-proxy",
+		'\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+			path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+		'\\.s?css$': 'identity-obj-proxy',
 	},
 
-	setupFilesAfterEnv: ["<rootDir>config/jest/setupTests.ts"],
+	setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
 
 	// Indicates whether the coverage information should be collected while executing the test
 	// collectCoverage: false,

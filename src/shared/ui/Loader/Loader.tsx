@@ -1,11 +1,16 @@
-import { classNames } from "shared/lib/classNames/classNames";
-import cls from "./Loader.module.scss";
+import { classNames } from 'shared/lib/classNames/classNames';
+import cls from './Loader.module.scss';
+
+console.log(cls);
 
 const Loader = () => {
 	return (
-		<span
-			className={classNames(cls.loader, {}, [])}
-		/>
+		<div className={classNames(cls.loader, {}, [])}>
+			<div />
+			<div />
+			<div />
+			<div />
+		</div>
 	);
 };
 

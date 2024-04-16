@@ -1,7 +1,7 @@
-import { useTranslation } from "react-i18next";
-import { classNames } from "shared/lib/classNames/classNames";
-import { Button } from "shared/ui/Button/Button";
-import { useEffect, useState } from "react";
+import { useTranslation } from 'react-i18next';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Button } from 'shared/ui/Button/Button';
+import { useEffect, useState } from 'react';
 
 interface BugButtonProps {
 	className?: string;
@@ -9,24 +9,26 @@ interface BugButtonProps {
 }
 
 const BugButton = (props: BugButtonProps) => {
-	const {
-		className,
-		children,
-	} = props;
+	const { className, children } = props;
 	const { t } = useTranslation();
 
 	const [error, setError] = useState(false);
 
-	const throwError = () => { return setError(true); };
+	const throwError = () => {
+		return setError(true);
+	};
 
 	useEffect(() => {
-		if (error) throw new Error("123");
+		if (error) throw new Error('123');
 	}, [error]);
 
 	return (
 		// eslint-disable-next-line i18next/no-literal-string
-		<Button onClick={throwError} className={classNames("", {}, [className])}>
-			throw error
+		<Button
+			onClick={throwError}
+			className={classNames('', {}, [className])}
+		>
+			{t('throw error')}
 		</Button>
 	);
 };

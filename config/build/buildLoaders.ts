@@ -1,25 +1,25 @@
-import webpack from "webpack";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import { BuildOptions } from "./types/config";
+import webpack from 'webpack';
+import { BuildOptions } from './types/config';
+import { buildCssLoader } from './loaders/buildCssLoader';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 	const { isDev } = options;
 
 	const fileLoader = {
 		test: /\.(png|jpg|gif|svg|eot|ttf|woff)$/,
-		type: "asset/resource",
+		type: 'asset/resource',
 	};
 
 	const babelLoader = {
 		test: /\.(js|jsx|tsx)$/,
 		exclude: /node_modules/,
 		use: {
-			loader: "babel-loader",
+			loader: 'babel-loader',
 			options: {
-				presets: ["@babel/preset-env"],
+				presets: ['@babel/preset-env'],
 				plugins: [
-					["i18next-extract", {
-						locales: ["ru", "en"],
+					['i18next-extract', {
+						locales: ['ru', 'en'],
 						keyAsDefaultValue: true,
 					}],
 				],
@@ -27,29 +27,11 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 		},
 	};
 
-	const cssLoader = {
-		test: /\.s[ac]ss$/i,
-		use: [
-			isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-			{
-				loader: "css-loader",
-				options: {
-					modules: {
-						auto: (resPath: string) => { return resPath.includes(".module."); },
-						localIdentName: isDev
-							? "[path][name]__[local]--[hash:base64:5]"
-							: "[hash:base64:8]",
-						namedExport: false,
-					},
-				},
-			},
-			"sass-loader",
-		],
-	};
+	const cssLoader = buildCssLoader(isDev);
 
 	const tsLoader = {
 		test: /\.tsx?$/,
-		use: "ts-loader",
+		use: 'ts-loader',
 		exclude: /node_modules/,
 	};
 
