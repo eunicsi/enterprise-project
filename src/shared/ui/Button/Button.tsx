@@ -2,10 +2,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { ButtonHTMLAttributes } from 'react';
 import cls from './Button.module.scss';
 
-console.log(cls);
-
 export enum ButtonTheme {
 	CLEAR = 'clear',
+	CLEAR_INVERTED = 'clearInverted',
 	OUTLINE = 'outline',
 	BACKGROUND = 'background',
 	BACKGROUND_INVERTED = 'backgroundInverted',
@@ -34,7 +33,6 @@ export const Button = (props: ButtonProps) => {
 		size = ButtonSize.M,
 		...otherProps
 	} = props;
-	console.log(cls[size], square);
 
 	const mods = {
 		[cls.square]: square,

@@ -1,8 +1,7 @@
-import './styles/index.scss';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { Suspense } from 'react';
-import Loader from 'shared/ui/Loader/Loader';
+import { Suspense, useState } from 'react';
+import { Button } from 'shared/ui/Button/Button';
 import { AppRouter } from './providers/router';
 import { classNames } from '../shared/lib/classNames/classNames';
 import { useTheme } from './providers/ThemeProvider/lib/useTheme';
@@ -17,7 +16,6 @@ const App = () => {
 				<div className="content-page">
 					<Sidebar />
 					<AppRouter />
-					<Loader />
 				</div>
 			</Suspense>
 		</div>
