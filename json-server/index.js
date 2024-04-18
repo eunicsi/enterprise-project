@@ -53,6 +53,6 @@ server.use((req, res, next) => {
 server.use(router);
 
 // запуск сервера
-server.listen(8000, () => {
+server.listen(5432, () => {
 	console.log('server is running on 5432 port');
 });
