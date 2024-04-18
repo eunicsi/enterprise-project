@@ -15,7 +15,7 @@ const preview: Preview = {
 	decorators: [
 		(Story) => {
 			return (
-				<div className="app light">
+				<div className="app app_light_theme">
 					<Story />
 				</div>
 			);
