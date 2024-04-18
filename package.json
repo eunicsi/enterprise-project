@@ -25,12 +25,6 @@
     "prettier": "bunx prettier --write **/*.{ts,tsx,json}",
     "prepare": "husky"
   },
-  "lint-staged": {
-    "**/*.{ts,tsx}": [
-      "prettier --list-different",
-      "eslint"
-    ]
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
