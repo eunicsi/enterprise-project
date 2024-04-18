@@ -1,0 +1,6 @@
+bun build:prod
+bun lint:ts
+bun lint:scss
+bun test:unit
+bun storybook:build
+bun test:ui:ci
