@@ -1,5 +1,6 @@
 import type { StorybookConfig } from '@storybook/react-webpack5';
 import path from 'path';
+import webpack, { DefinePlugin } from 'webpack';
 import { BuildPaths } from '../build/types/config';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 
@@ -20,7 +21,9 @@ const config: StorybookConfig = {
 	docs: {
 		autodocs: 'tag',
 	},
-	webpackFinal: async (config) => {
+	staticDirs: ['../../public'],
+
+	webpackFinal: async (config: webpack.Configuration) => {
 		const paths: BuildPaths = {
 			build: '',
 			html: '',
@@ -32,6 +35,13 @@ const config: StorybookConfig = {
 		config.resolve?.extensions?.push('.ts', '.tsx');
 
 		config.module?.rules?.push(buildCssLoader(true));
+
+		config.plugins?.push(
+			new DefinePlugin({
+				__IS_DEV__: true,
+				__API__: JSON.stringify(''),
+			}),
+		);
 
 		return config;
 	},

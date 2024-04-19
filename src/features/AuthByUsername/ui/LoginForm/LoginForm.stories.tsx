@@ -2,13 +2,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Navbar } from './Navbar';
+import { LoginForm } from './LoginForm';
 
 const meta = {
-	title: 'widget/Navbar',
-	component: Navbar,
+	title: 'features/LoginForm',
+	component: LoginForm,
 	parameters: {
 		layout: 'centered',
 	},
@@ -16,20 +15,26 @@ const meta = {
 	argTypes: {},
 	decorators: [
 		(Story) => {
-			return RouterDecorator(<Story />);
-		},
-		(Story) => {
-			return StoreDecorator(<Story />, {});
+			return StoreDecorator(<Story />, {
+				loginForm: {
+					username: 'admin',
+					password: '123',
+					error: 'ERROR',
+				},
+			});
 		},
 	],
-} satisfies Meta<typeof Navbar>;
+} satisfies Meta<typeof LoginForm>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {};
+export const Primary: Story = {
+	args: {},
+};
 
 export const PrimaryDark: Story = {
+	args: {},
 	decorators: [
 		(Story) => {
 			return ThemeDecorator(<Story />, Theme.DARK);

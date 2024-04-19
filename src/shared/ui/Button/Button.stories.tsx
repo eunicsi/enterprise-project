@@ -34,6 +34,25 @@ export const PrimaryDark: Story = {
 	],
 };
 
+export const PrimaryDisabled: Story = {
+	args: {
+		children: 'Button',
+		disabled: true,
+	},
+};
+
+export const PrimaryDarkDisabled: Story = {
+	args: {
+		children: 'Button',
+		disabled: true,
+	},
+	decorators: [
+		(Story) => {
+			return ThemeDecorator(<Story />, Theme.DARK);
+		},
+	],
+};
+
 export const Clear: Story = {
 	args: {
 		children: 'Button',
