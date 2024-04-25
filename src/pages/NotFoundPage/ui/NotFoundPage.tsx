@@ -10,7 +10,7 @@ const NotFoundPage = (props: NotFoundPageProps) => {
 	const { t } = useTranslation();
 
 	return (
-		<div className={classNames(cls.NotFoundPage, {}, [className])}>
+		<div className={classNames(cls.notFoundPage, {}, [className])}>
 			{t('Страница не найдена')}
 		</div>
 	);

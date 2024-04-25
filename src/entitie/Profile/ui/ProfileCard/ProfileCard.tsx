@@ -4,7 +4,7 @@ import { Currency } from 'entitie/Currency/model/types/currency';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Input } from 'shared/ui/Input/Input';
+import Input from 'shared/ui/Input/Input';
 import Loader from 'shared/ui/Loader/Loader';
 import Text, { TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Profile } from '../../model/types/profile';
@@ -43,13 +43,13 @@ export const ProfileCard = (props: ProfileCardProps) => {
 		onChangeCountry,
 	} = props;
 
-	const { t } = useTranslation('profile');
+	const { t } = useTranslation();
 
 	if (isLoading) {
 		return (
 			<div
 				className={classNames(
-					cls.ProfileCard,
+					cls.profileCard,
 					{ [cls.loading]: true },
 					[className],
 				)}
@@ -62,7 +62,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 	if (error) {
 		return (
 			<div
-				className={classNames(cls.ProfileCard, {}, [
+				className={classNames(cls.profileCard, {}, [
 					className,
 					cls.error,
 				])}

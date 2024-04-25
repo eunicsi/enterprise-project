@@ -1,11 +1,10 @@
-import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import React, { InputHTMLAttributes, memo, useEffect, useRef } from 'react';
+import React, { InputHTMLAttributes, memo } from 'react';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<
 	InputHTMLAttributes<HTMLInputElement>,
-	'value' | 'onChange'
+	'value' | 'onChange' | 'readOnly'
 >;
 
 interface InputProps extends HTMLInputProps {
@@ -15,39 +14,37 @@ interface InputProps extends HTMLInputProps {
 	readonly?: boolean;
 }
 
-export const Input = memo((props: InputProps) => {
+const Input = memo((props: InputProps) => {
 	const {
 		className,
 		value,
-		placeholder,
 		onChange,
 		type = 'text',
-		autoFocus,
+		placeholder,
+		readonly,
 		...otherProps
 	} = props;
-
-	const ref = useRef<HTMLInputElement>(null);
 
 	const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
 		onChange?.(e.target.value);
 	};
 
-	useEffect(() => {
-		if (autoFocus) {
-			ref.current?.focus();
-		}
-	}, [autoFocus]);
+	const mods: Mods = {
+		[cls.readonly]: readonly,
+	};
 
 	return (
-		<div className={classNames(cls.input, {}, [className])}>
+		<div className={classNames(cls.Input, mods, [className])}>
 			<input
-				ref={ref}
 				type={type}
 				placeholder={placeholder}
 				value={value}
 				onChange={onChangeHandler}
+				readOnly={readonly}
 				{...otherProps}
 			/>
 		</div>
 	);
 });
+
+export default Input;
