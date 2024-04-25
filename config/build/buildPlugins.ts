@@ -9,6 +9,7 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
 	const {
 		paths,
 		isDev,
+		apiUrl
 	} = options;
 
 	const plugins = [
@@ -22,6 +23,7 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
 		}),
 		new webpack.DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev),
+			__API__: JSON.stringify(apiUrl),
 		}),
 		new ReactRefreshWebpackPlugin(),
 	]

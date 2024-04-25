@@ -16,10 +16,10 @@ const meta = {
 	argTypes: {},
 	decorators: [
 		(Story) => {
-			return RouterDecorator(<Story />);
+			return StoreDecorator(<Story />, {});
 		},
 		(Story) => {
-			return StoreDecorator(<Story />, {});
+			return RouterDecorator(<Story />);
 		},
 	],
 } satisfies Meta<typeof Navbar>;

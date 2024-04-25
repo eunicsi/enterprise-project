@@ -10,8 +10,9 @@ type HTMLInputProps = Omit<
 
 interface InputProps extends HTMLInputProps {
 	className?: string;
-	value?: string;
+	value?: string | number;
 	onChange?: (value: string) => void;
+	readonly?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
