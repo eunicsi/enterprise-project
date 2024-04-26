@@ -30,13 +30,14 @@ const Text = memo((props: TextProps) => {
 		align = TextAlign.LEFT,
 	} = props;
 
-	const mods = {
-		[cls[theme]]: true,
-		[cls[align]]: true,
-	};
-
 	return (
-		<div className={classNames(cls.text, mods, [className])}>
+		<div
+			className={classNames(cls.text, {}, [
+				className,
+				cls[theme],
+				cls[align],
+			])}
+		>
 			{title && <p className={cls.title}>{title}</p>}
 			{text && <p className={cls.text}>{text}</p>}
 		</div>

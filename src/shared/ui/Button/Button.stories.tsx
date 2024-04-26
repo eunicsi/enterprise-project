@@ -74,6 +74,20 @@ export const Outline: Story = {
 	},
 };
 
+export const OutlineRed: Story = {
+	args: {
+		children: 'Button',
+		theme: ButtonTheme.OUTLINE_RED,
+	},
+};
+
+export const OutlineRedInverted: Story = {
+	args: {
+		children: 'Button',
+		theme: ButtonTheme.OUTLINE_RED_INVERTED,
+	},
+};
+
 export const Background: Story = {
 	args: {
 		children: 'Button',
